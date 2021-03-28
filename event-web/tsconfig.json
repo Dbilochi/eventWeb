@@ -10,6 +10,7 @@
         "@interceptors/*" :["app/interceptors/*"],
         "@services/*" :["app/services/*"],
         "@models/*" :["app/models/*"],
+        "@guards/*" :["app/guards/*"],
         "@utilites/*" :["app/utilites/*"],
         "@directives/*":["app/directives/*"],
         "@validators/*":["app/validators/*"],
