@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from '@components/login/login.component';
@@ -11,6 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import {MatIconModule} from '@angular/material/icon';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MyHttpInterceptor } from './httpinterceptor';
+import {MatTabsModule} from '@angular/material/tabs';
+import { InvitationComponent } from './components/invitation/invitation.component';
 
 
 @NgModule({
@@ -18,7 +21,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    DashboardComponent
+    DashboardComponent,
+    InvitationComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +33,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatTabsModule,
   ],
-  providers: [],
+  providers: [
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: MyHttpInterceptor,
+        multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

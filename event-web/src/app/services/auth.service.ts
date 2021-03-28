@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '@environments/environment';
 import { Observable } from 'rxjs';
-import {first, map} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import {first, map} from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   signIn(email: string, password: string): Observable<any>{
     const body={email,password}
@@ -31,5 +32,12 @@ isLoggedIn(): boolean {
         return true;
     }
     return false;
-    }
+}
+
+logout() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('user_id');
+    this.router.navigate(['/login']);
+  }
 }
