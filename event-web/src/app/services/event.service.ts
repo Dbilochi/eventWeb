@@ -18,4 +18,9 @@ export class EventService {
     let userID = localStorage.getItem('user_id')
     return this.http.get(environment.apiURL+'user/'+userID+'/invitations')
   }
+
+  updateInvitationStatus(inviteID: number, status: string){
+    const body={status}
+    return this.http.put(environment.apiURL+'invite/' + inviteID + '/update-status',body)
+  }
 }

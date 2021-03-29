@@ -1,8 +1,10 @@
-<h1>Welcome to Event Web</h1>
+<div class="welcome-text">
+    <h1>Welcome to Event Web</h1>
+</div>
 <button href="" class="logout" (click)="logout()">
     Logout
 </button>
-<mat-tab-group (selectedTabChange)="onTabClick($event)">
+<mat-tab-group  #tabGroup>
     <mat-tab label="Calendar">
         <div class="row text-center">
             <div class="col-md-4">
@@ -44,8 +46,6 @@
 
     </mat-tab>
     <mat-tab label="Invitations">
-        <ng-template>
-            <app-invitation></app-invitation>
-        </ng-template>
+        <app-invitation *ngIf="tabGroup.selectedIndex === 1"></app-invitation>
     </mat-tab>
 </mat-tab-group>

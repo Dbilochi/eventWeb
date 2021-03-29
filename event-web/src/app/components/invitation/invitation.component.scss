@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+  }
+
+.action-btn{
+font-family: "Roboto", sans-serif;
+text-transform: uppercase;
+outline: 0;
+background: #007bff;
+width: 6pc;
+border: 0;
+padding: 15px;
+margin: 10px;
+color: #FFFFFF;
+font-size: 11px;
+-webkit-transition: all 0.3 ease;
+transition: all 0.3 ease;
+cursor: pointer;
+font-family: "Lucida Grande";
+}
+button:hover,.form button:active,.form button:focus {
+background: #0059ff;
+}

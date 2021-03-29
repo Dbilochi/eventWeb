@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
         private modal: NgbModal) { }
 
     ngOnInit(): void {
+        this.getUserEvents()
         this.getUserInvitations()
     }
 
@@ -93,7 +94,6 @@ export class DashboardComponent implements OnInit {
 
     getUserInvitations() {
         this.eventService.getUserInvitations().subscribe((res => {
-            this.mapResToCalendarEvent(res)
         }))
     }
 

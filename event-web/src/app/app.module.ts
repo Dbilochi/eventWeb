@@ -17,6 +17,8 @@ import { InvitationComponent } from './components/invitation/invitation.componen
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         useFactory: adapterFactory,
       }),
     NgbModule,
+    MatTableModule
   ],
   providers: [
     {

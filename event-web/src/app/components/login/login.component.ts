@@ -18,7 +18,11 @@ public loginForm = this.builder.group({
     private builder: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {
+    if(this.authService.isLoggedIn()) {
+        this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
   }
