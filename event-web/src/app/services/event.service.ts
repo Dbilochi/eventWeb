@@ -11,6 +11,11 @@ export class EventService {
 
   getUserEvents(){
     let userID = localStorage.getItem('user_id')
+    return this.http.get(environment.apiURL+'user/'+userID+'/events')
+  }
+
+  getUserInvitations(){
+    let userID = localStorage.getItem('user_id')
     return this.http.get(environment.apiURL+'user/'+userID+'/invitations')
   }
 }

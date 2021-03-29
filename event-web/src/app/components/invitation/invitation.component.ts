@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { EventService} from '@services/event.service';
+
 
 @Component({
   selector: 'app-invitation',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./invitation.component.scss']
 })
 export class InvitationComponent implements OnInit {
-
-  constructor() { }
+ @Input() invitations: any
+  constructor(private eventService: EventService) { console.log('my inviatsion--', this.invitations)}
 
   ngOnInit(): void {
+      
   }
 
 }
